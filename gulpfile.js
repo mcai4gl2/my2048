@@ -9,6 +9,7 @@ var gulp = require('gulp'),
 var styles = 'src/*.scss';
 var scripts = 'src/*.js';
 var htmls = '*.html';
+var unitTests = 'tests/unit/*.js';
 
 var onError = function(err) {
   util.log(util.colors.green(err));
@@ -31,8 +32,9 @@ gulp.task('watch', function () {
   livereload.listen();
   
   gulp.watch(styles, ['styles']);
-  gulp.watch(scripts, ['jsx']);
+  gulp.watch(scripts, ['test', 'jsx']);
   gulp.watch(htmls, ['html']);
+  gulp.watch(unitTests, ['test']);
 });
 
 gulp.task('html', function() {
@@ -41,10 +43,14 @@ gulp.task('html', function() {
 });
 
 gulp.task('test', function() {
-	return gulp.src('./tests/unit/tile.html')
-		.pipe(qunit());
+	return gulp.src('./tests/unit/*.html')
+		.pipe(qunit())
+    // TODO: this is not good as even if the test failed, the rest of the package still runs
+    // But this is good so don't need to rerun gulp test from command line when adding more tests
+    .on("error", onError)
+    .pipe(livereload());
 });
 
-gulp.task('default', ['test', 'watch', 'styles', 'jsx', 'html']);
+gulp.task('default', ['test', 'styles', 'jsx', 'html', 'watch']);
 
 gulp.task('build', ['test', 'styles', 'jsx']);

@@ -30,3 +30,16 @@ test("Tile.hasMoved", function() {
 	tile.moveTo(2, 2);
 	QUnit.ok(tile.hasMoved(), "Tile after moving is moved");
 });
+
+test("Tile.from* for unmerged tile", function() {
+	var tile = new Tile(2, 1, 1);
+	QUnit.equal(-1, tile.fromRow(), "It shall return oldRow");
+	QUnit.equal(-1, tile.fromColumn(), "It shall return oldColumn");
+});
+
+test("Tile.from* for merged tile", function() {
+	var tile = new Tile(2, 1, 3);
+	tile.mergedInto = new Tile();
+	QUnit.equal(1, tile.fromRow(), "It shall return row");
+	QUnit.equal(3, tile.fromColumn(), "It shall return column");
+});
