@@ -12,6 +12,8 @@
 	    "gulp-react": "*",
 	    "gulp-sass": "^0.7.2",
 	    "gulp-qunit": "1.1.0",
+	    "gulp-util": "*",
+	    "gulp-livereload": "*",
 	    "bower": "*"
 	},
 	"dependencies": {

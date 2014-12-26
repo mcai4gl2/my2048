@@ -2,10 +2,17 @@ var gulp = require('gulp'),
 	sass = require('gulp-sass'),
 	prefix = require('gulp-autoprefixer'),
 	react = require('gulp-react'),
+  util = require('gulp-util'),
+  livereload = require('gulp-livereload'),
 	qunit = require('gulp-qunit');
 
 var styles = 'src/*.scss';
 var scripts = 'src/*.js';
+var htmls = '*.html';
+
+var onError = function(err) {
+  util.log(util.colors.green(err));
+};
 
 gulp.task('styles', function () {
   return gulp.src(styles)
@@ -21,8 +28,16 @@ gulp.task('jsx', function () {
 });
 
 gulp.task('watch', function () {
+  livereload.listen();
+  
   gulp.watch(styles, ['styles']);
   gulp.watch(scripts, ['jsx']);
+  gulp.watch(htmls, ['html']);
+});
+
+gulp.task('html', function() {
+  return gulp.src([htmls])
+    .pipe(livereload());
 });
 
 gulp.task('test', function() {
@@ -30,6 +45,6 @@ gulp.task('test', function() {
 		.pipe(qunit());
 });
 
-gulp.task('default', ['test', 'watch', 'styles', 'jsx']);
+gulp.task('default', ['test', 'watch', 'styles', 'jsx', 'html']);
 
 gulp.task('build', ['test', 'styles', 'jsx']);
