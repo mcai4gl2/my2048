@@ -7,7 +7,8 @@
 			underscore: "../../bower_components/underscore/underscore",
 			qunit: "../../bower_components/qunit/qunit/qunit",
 			tile: "../../src/tile",
-			gh: "../../src/gh-client"
+			gh: "../../src/gh-client",
+			githubApi: "../../bower_components/github-api/github"
 		}
 	});
 

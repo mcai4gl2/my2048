@@ -5,8 +5,10 @@
   	"underscore": "*",
   	"jquery": "*",
     "requirejs": "*",
+    "requirejs-text": "*",
   	"bootstrap": "*",
-    "github-api": "*"
+    "github-api": "*",
+    "backbone": "*"
   },
   "devDependencies": {
     "qunit": "~1.16.0"

@@ -1,8 +1,14 @@
 require.config({
 	paths: {
-		jquery: "bower_componets/jquery/dist",
-		underscore: "bower_componets/underscore",
-		react: "bower_componets/react",
-		bootstrap: "bower_componets/dist"
+		jquery: "../bower_components/jquery/dist/jquery",
+		underscore: "../bower_components/underscore/underscore",
+		backbone: "../bower_components/backbone/backbone",
+		text: "../bower_components/requirejs-text/text"
 	}
+});
+
+require([
+	'app'
+], function(App)) {
+	App.initialize();
 });
