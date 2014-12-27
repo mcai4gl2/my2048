@@ -1,13 +1,8 @@
-require.config({
-	paths: {
-		jquery: "../../bower_components/jquery/dist",
-		underscore: "../../bower_components/underscore",
-		qunit: "../../bower_components/qunit/qunit/qunit",
-		tile: "../../src/tile"
-	}
-});
+define([
+	"tile"
+], function() {
+	QUnit.module("Tile Tests");
 
-define(['qunit', 'tile'], function() {
 	test('Tile.new', function() {
 		var newTile = new Tile(2);
 		console.log(newTile);
@@ -53,6 +48,4 @@ define(['qunit', 'tile'], function() {
 		QUnit.equal(1, tile.fromRow(), "It shall return row");
 		QUnit.equal(3, tile.fromColumn(), "It shall return column");
 	});
-
-	QUnit.load();
 });

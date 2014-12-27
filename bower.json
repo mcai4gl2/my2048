@@ -5,7 +5,8 @@
   	"underscore": "*",
   	"jquery": "*",
     "requirejs": "*",
-  	"bootstrap": "*"
+  	"bootstrap": "*",
+    "github-api": "*"
   },
   "devDependencies": {
     "qunit": "~1.16.0"
