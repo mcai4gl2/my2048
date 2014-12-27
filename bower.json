@@ -1,7 +1,11 @@
 {
   "name": "my2048",
   "dependencies": {
-  	"react": "*"
+  	"react": "*",
+  	"underscore": "*",
+  	"jquery": "*",
+    "requirejs": "*",
+  	"bootstrap": "*"
   },
   "devDependencies": {
     "qunit": "~1.16.0"

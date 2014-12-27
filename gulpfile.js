@@ -19,7 +19,8 @@ gulp.task('styles', function () {
   return gulp.src(styles)
     .pipe(sass())
     .pipe(prefix('last 2 versions', '> 1%', 'ie 8', 'ie 7'))
-    .pipe(gulp.dest('built'));
+    .pipe(gulp.dest('built'))
+    .pipe(livereload());
 });
 
 gulp.task('jsx', function () {
