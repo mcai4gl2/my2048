@@ -1,8 +1,9 @@
 define([
 	"jquery",
 	"underscore",
-	"backbone"
-], function($, _, Backbone) {
+	"backbone",
+	"views/navbar/NavbarView"
+], function($, _, Backbone, NavbarView) {
 	var AppRouter = Backbone.Router.extend({
 		routes: {
 			'*actions': 'defaultAction'
@@ -11,6 +12,9 @@ define([
 
 	var initialize = function() {
 		var appRouter = new AppRouter();
+
+		var navbarView = new NavbarView();
+		navbarView.render();
 
 		appRouter.on('route:defaultAction', function() {
 

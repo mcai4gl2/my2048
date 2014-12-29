@@ -7,7 +7,7 @@ var gulp = require('gulp'),
 	qunit = require('gulp-qunit');
 
 var styles = 'src/*.scss';
-var scripts = 'src/*.js';
+var scripts = 'src/**/*.js';
 var htmls = '*.html';
 var unitTests = 'tests/unit/*.js';
 
