@@ -9,6 +9,6 @@ require.config({
 
 require([
 	'app'
-], function(App)) {
+], function(App) {
 	App.initialize();
 });
